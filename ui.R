@@ -11,25 +11,51 @@ intro_tab <- tabPanel(
 
 chart1_tab <- tabPanel(
   "Chart 1",
-  fluidPage(
-    p("Chart 1 will go here.")
+  titlePanel("Zayna's Chart 1 Title"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("select", 
+                  label = h3("This is an example Selection widget. Select a mental disorder."), 
+                  choices = list("Anxiety" = 1, "Depression" = 2, "Dementia" = 3))
+    ),
+    mainPanel(
+      h3("Magic plot title"),
+      p("Here's where Plot 1 will go.")
+    )
   )
 )
 
 chart2_tab <- tabPanel(
   "Chart 2",
-  fluidPage(
-    p("Chart 2 will go here.")
+  titlePanel("Emily's Chart 2 Title"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("select", 
+                  label = h3("This is an example Selection widget. Select a mental disorder."), 
+                  choices = list("Anxiety" = 1, "Depression" = 2, "Dementia" = 3))
+    ),
+    mainPanel(
+      h3("Magic plot title"),
+      p("Here's where Plot 2 will go.")
+    )
   )
 )
 
 chart3_tab <- tabPanel(
   "Chart 3",
-  fluidPage(
-    p("Chart 3 will go here.")
+  titlePanel("Sam's Chart 3 Title"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("select", 
+                  label = h3("This is an example Selection widget. Select a mental disorder."), 
+                  choices = list("Anxiety" = 1, "Depression" = 2, "Dementia" = 3))
+    ),
+    mainPanel(
+      h3("Magic plot title"),
+      p("Here's where Plot 3 will go.")
+    )
   )
 )
-
 
 ui <- navbarPage(
   "2020 NIHS Data",
