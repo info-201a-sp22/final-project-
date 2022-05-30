@@ -1,5 +1,6 @@
 library(shiny)
 library(shinythemes)
+library(markdown)
 
 
 intro_tab <- tabPanel(
