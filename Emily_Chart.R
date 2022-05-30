@@ -264,7 +264,10 @@ just_comorbids <- data.frame(
                     just_hy)
 
 #Plotly code
-barfig <- plot_ly(just_comorbids, x = ~disorder_names, y = ~just_cp, type = 'bar', name = 'Chronic Pain') %>% 
+plot_ly(just_comorbids, x = ~disorder_names, y = ~just_cp, type = 'bar', name = 'Chronic Pain') %>% 
   add_trace(y = ~just_op, name = 'Opioid Use') %>% 
   add_trace(y = ~just_sf, name = 'Social Functioning') %>% 
-  add_trace(y = ~just_hy, name = 'Hypertension')
+  add_trace(y = ~just_hy, name = 'Hypertension') %>% 
+  layout(title = "Frequency of Mental Health Comorbidities in the 2020 NHIS",
+          yaxis = list(title = 'Number of Respondents'),
+          xaxis = list(title = 'Mental Disorder'))
