@@ -16,8 +16,8 @@ chart1_tab <- tabPanel(
   titlePanel("Zayna's Chart 1 Title"),
   sidebarLayout(
     sidebarPanel(
-      selectInput("select", 
-                  label = h3("This is an example Selection widget. Select a mental disorder."), 
+      selectInput("select",
+                  label = h3("This is an example Selection widget. Select a mental disorder."),
                   choices = list("Anxiety" = 1, "Depression" = 2, "Dementia" = 3))
     ),
     mainPanel(
@@ -29,22 +29,21 @@ chart1_tab <- tabPanel(
 
 chart2_tab <- tabPanel(
   "Chart 2",
-  titlePanel("Emily's Chart 2 Title"),
-  sidebarLayout(
-    sidebarPanel(
-      selectInput(
-        inputId = "Selections",
-        choices = Emily_Dataset$Country,
-        selected = NULL,
-        multiple = TRUE,
-        selectize = TRUE,
-        width = NULL,
-        size = NULL
-    ),
+  titlePanel("Prevalence of Comorbidities Among Reported Mental Disorders"),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(
+          inputId = "Selections",
+          label = "Selections",
+          choices = Emily_Dataset$Country,
+          selected = NULL,
+          multiple = TRUE,
+          selectize = TRUE
+      ),
     mainPanel(
       h3("Prevalence of Comorbidities Among Reported Mental Disorders"),
-      p("Here's where Plot 2 will go.")
-     )
+      plotOutput("barplot")
+      )
     )
   )
 )
@@ -54,8 +53,8 @@ chart3_tab <- tabPanel(
   titlePanel("Sam's Chart 3 Title"),
   sidebarLayout(
     sidebarPanel(
-      selectInput("select", 
-                  label = h3("This is an example Selection widget. Select a mental disorder."), 
+      selectInput("select",
+                  label = h3("This is an example Selection widget. Select a mental disorder."),
                   choices = list("Anxiety" = 1, "Depression" = 2, "Dementia" = 3))
     ),
     mainPanel(
