@@ -2,6 +2,7 @@ library(shiny)
 library(shinythemes)
 library(markdown)
 
+Emily_Dataset <- read.csv("Emily_SmallDataset.csv")
 
 intro_tab <- tabPanel(
   "Introduction",
@@ -31,13 +32,19 @@ chart2_tab <- tabPanel(
   titlePanel("Emily's Chart 2 Title"),
   sidebarLayout(
     sidebarPanel(
-      selectInput("select", 
-                  label = h3("This is an example Selection widget. Select a mental disorder."), 
-                  choices = list("Anxiety" = 1, "Depression" = 2, "Dementia" = 3))
+      selectInput(
+        inputId = "Selections",
+        choices = Emily_Dataset$Country,
+        selected = NULL,
+        multiple = TRUE,
+        selectize = TRUE,
+        width = NULL,
+        size = NULL
     ),
     mainPanel(
-      h3("Magic plot title"),
+      h3("Prevalence of Comorbidities Among Reported Mental Disorders"),
       p("Here's where Plot 2 will go.")
+     )
     )
   )
 )
