@@ -32,7 +32,7 @@ z_widget <- sidebarPanel(
   selectInput(
     inputId = "Mental_Health_Co-Variates",
     label = "Select Anxiety-Related Mental Co-Variate",
-    choices = zchart$Mental_Health,
+    choices = chart1$Mental_Health,
     selected = "dif_doing_errands", 
     multiple = FALSE
   )
