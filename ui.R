@@ -11,7 +11,7 @@ library(hrbrthemes)
 library(scales)
 
 chart1 <- read.csv("zchart.csv")
-# chart2 <- read.csv("emchart.csv")
+chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
 
 #vector for sams slider
@@ -39,20 +39,20 @@ z_widget <- sidebarPanel(
   )
 )
 
-# #Em's widget
-# em_widget <- sidebarPanel(
-#   selectInput(inputId = "comorbid_selection",
-#               label = h3("Select a comorbidity"),
-#               choices = c("High Chronic Pain",
-#                           "Opioid Use",
-#                           "Difficulty with Social Functioning",
-#                           "Hypertension"),
-#               selected = "High Chronic Pain",
-#               multiple = TRUE,
-#               selectize = TRUE,
-#               width = NULL,
-#               size = NULL)
-# )
+#Em's widget
+em_widget <- sidebarPanel(
+  selectInput(inputId = "comorbid_selection",
+               label = h3("Select a comorbidity"),
+               choices = c("High Chronic Pain",
+                           "Opioid Use",
+                           "Difficulty with Social Functioning",
+                           "Hypertension"),
+               selected = "High Chronic Pain",
+               multiple = TRUE,
+               selectize = TRUE,
+               width = NULL,
+               size = NULL)
+ )
 
 #My widget is here, you guys should put yours right above mine for formatting
 sam_widget <- sidebarPanel(
@@ -67,11 +67,10 @@ sam_widget <- sidebarPanel(
 
 
 
-# #The contents of Em's tab
-# em_panel_plot <- mainPanel(
-#   plotlyOutput(outputId = "plot2"),
-#   includeMarkdown("Emily_Chart_Summary.md")
-# )
+#The contents of Em's tab
+em_panel_plot <- mainPanel(
+   plotlyOutput(outputId = "plot2")
+ )
 
 #The contents of my tab
 sam_panel_plot <- mainPanel(
@@ -95,16 +94,16 @@ chart1_tab <- tabPanel(
   )
 )
 
-# #formatting/compiling all Em's things into Em's tab
-# chart2_tab <- tabPanel(
-#   "Frequency of Comorbidities",
-#   fluidPage(
-#     sidebarLayout(
-#       em_widget,
-#       em_panel_plot
-#     )
-#   )
-# )
+#formatting/compiling all Em's things into Em's tab
+chart2_tab <- tabPanel(
+   "Frequency of Comorbidities",
+   fluidPage(
+     sidebarLayout(
+       em_widget,
+       em_panel_plot
+     )
+   )
+ )
 
 #formatting/compiling all my things into my tab
 chart3_tab <- tabPanel(
@@ -123,6 +122,6 @@ ui <- navbarPage(
   theme = shinytheme("flatly"),
   intro_tab,
   chart1_tab,
-  # chart2_tab,
+  chart2_tab,
   chart3_tab
 )
