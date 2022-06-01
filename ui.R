@@ -11,7 +11,7 @@ library(hrbrthemes)
 library(scales)
 
 chart1 <- read.csv("zchart.csv")
-chart2 <- read.csv("emchart.csv")
+# chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
 
 #vector for sams slider
@@ -28,30 +28,31 @@ intro_tab <- tabPanel(
 )
 
 #Zayna's widget
+mental_health <- c("dif_doing_errands", "diff_partic_social_act", "ever_had_anxiety")
 z_widget <- sidebarPanel(
   selectInput(
     inputId = "Mental_Health_Co-Variates",
     label = "Select Anxiety-Related Mental Co-Variate",
-    choices = chart1$Mental_Health,
+    choices = mental_health,
     selected = "dif_doing_errands", 
     multiple = FALSE
   )
 )
 
-#Em's widget
-em_widget <- sidebarPanel(
-  selectInput(inputId = "comorbid_selection",
-              label = h3("Select a comorbidity"),
-              choices = c("High Chronic Pain",
-                          "Opioid Use",
-                          "Difficulty with Social Functioning",
-                          "Hypertension"),
-              selected = "High Chronic Pain",
-              multiple = TRUE,
-              selectize = TRUE,
-              width = NULL,
-              size = NULL)
-)
+# #Em's widget
+# em_widget <- sidebarPanel(
+#   selectInput(inputId = "comorbid_selection",
+#               label = h3("Select a comorbidity"),
+#               choices = c("High Chronic Pain",
+#                           "Opioid Use",
+#                           "Difficulty with Social Functioning",
+#                           "Hypertension"),
+#               selected = "High Chronic Pain",
+#               multiple = TRUE,
+#               selectize = TRUE,
+#               width = NULL,
+#               size = NULL)
+# )
 
 #My widget is here, you guys should put yours right above mine for formatting
 sam_widget <- sidebarPanel(
@@ -64,24 +65,24 @@ sam_widget <- sidebarPanel(
   )
 )
 
-#The contents of Zayna's tab
-z_panel_plot <- mainPanel(
-  plotlyOutput(outputId = "pie"),
-  includeMarkdown("FinalPieSum.md")
-)
 
 
-#The contents of Em's tab
-em_panel_plot <- mainPanel(
-  plotlyOutput(outputId = "plot2"),
-  includeMarkdown("Emily_Chart_Summary.md")
-)
+# #The contents of Em's tab
+# em_panel_plot <- mainPanel(
+#   plotlyOutput(outputId = "plot2"),
+#   includeMarkdown("Emily_Chart_Summary.md")
+# )
 
 #The contents of my tab
 sam_panel_plot <- mainPanel(
   plotlyOutput(outputId = "plot3") ,
   paste("Provide description of plot here")
 )
+
+z_panel_plot <- mainPanel(
+  plotlyOutput(outputId = "pie")
+ )
+
 
 #formatting/compiling all Z's things into Z's tab
 chart1_tab <- tabPanel(
@@ -94,16 +95,16 @@ chart1_tab <- tabPanel(
   )
 )
 
-#formatting/compiling all Em's things into Em's tab
-chart2_tab <- tabPanel(
-  "Frequency of Comorbidities",
-  fluidPage(
-    sidebarLayout(
-      em_widget,
-      em_panel_plot
-    )
-  )
-)
+# #formatting/compiling all Em's things into Em's tab
+# chart2_tab <- tabPanel(
+#   "Frequency of Comorbidities",
+#   fluidPage(
+#     sidebarLayout(
+#       em_widget,
+#       em_panel_plot
+#     )
+#   )
+# )
 
 #formatting/compiling all my things into my tab
 chart3_tab <- tabPanel(
@@ -122,6 +123,6 @@ ui <- navbarPage(
   theme = shinytheme("flatly"),
   intro_tab,
   chart1_tab,
-  chart2_tab,
+  # chart2_tab,
   chart3_tab
 )
