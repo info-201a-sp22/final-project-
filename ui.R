@@ -7,10 +7,12 @@ library(DT)
 library(plotly) 
 library(ggplot2) 
 library(dplyr)
+library(hrbrthemes)
+library(scales)
 
-Emily_Dataset <- read.csv("Emily_SmallDataset.csv")
+chart1 <- read.csv("zchart.csv")
+chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
-zchart <- read.csv("zchart.csv")
 
 #vector for sams slider
 sam_min_year <- 2016
@@ -25,6 +27,32 @@ intro_tab <- tabPanel(
   #)
 )
 
+#Zayna's widget
+z_widget <- sidebarPanel(
+  selectInput(
+    inputId = "Mental_Health_Co-Variates",
+    label = "Select Anxiety-Related Mental Co-Variate",
+    choices = zchart$Mental_Health,
+    selected = "dif_doing_errands", 
+    multiple = FALSE
+  )
+)
+
+#Em's widget
+em_widget <- sidebarPanel(
+  selectInput(inputId = "comorbid_selection",
+              label = h3("Select a comorbidity"),
+              choices = c("High Chronic Pain",
+                          "Opioid Use",
+                          "Difficulty with Social Functioning",
+                          "Hypertension"),
+              selected = "High Chronic Pain",
+              multiple = TRUE,
+              selectize = TRUE,
+              width = NULL,
+              size = NULL)
+)
+
 #My widget is here, you guys should put yours right above mine for formatting
 sam_widget <- sidebarPanel(
   sliderInput(inputId = "year_selection", 
@@ -36,35 +64,45 @@ sam_widget <- sidebarPanel(
   )
 )
 
-sidebar_panel_widget <- sidebarPanel(
-  selectInput(
-    inputId = "Mental_Health_Co-Varients",
-    label = "Select Anxiety related Mental Health Disorder",
-    choices = zchart$Mental_Health,
-    selected = "dif_doing_errands", 
-    multiple = FALSE
-  )
-)
-
-main_panel_plot <- mainPanel(
+#The contents of Zayna's tab
+z_panel_plot <- mainPanel(
   plotlyOutput(outputId = "pie"),
   includeMarkdown("FinalPieSum.md")
 )
 
 
-Zayna_Piegraph_Tab <- tabPanel(
-  "Prevalance of Anxiety Impacting Social Functioning and Mobility",
-  sidebarLayout(
-    sidebar_panel_widget,
-    main_panel_plot
-    
-  )
+#The contents of Em's tab
+em_panel_plot <- mainPanel(
+  plotlyOutput(outputId = "plot2"),
+  includeMarkdown("Emily_Chart_Summary.md")
 )
 
 #The contents of my tab
 sam_panel_plot <- mainPanel(
   plotlyOutput(outputId = "plot3") ,
   paste("Provide description of plot here")
+)
+
+#formatting/compiling all Z's things into Z's tab
+chart1_tab <- tabPanel(
+  "Prevalance of Anxiety Impacting Social Functioning and Mobility",
+  fluidPage(
+    sidebarLayout(
+      z_widget,
+      z_panel_plot
+    )
+  )
+)
+
+#formatting/compiling all Em's things into Em's tab
+chart2_tab <- tabPanel(
+  "Frequency of Comorbidities",
+  fluidPage(
+    sidebarLayout(
+      em_widget,
+      em_panel_plot
+    )
+  )
 )
 
 #formatting/compiling all my things into my tab
@@ -83,7 +121,7 @@ ui <- navbarPage(
   "2020 NIHS Data",
   theme = shinytheme("flatly"),
   intro_tab,
-  Zayna_Piegraph_Tab,
-  #chart2_tab,
+  chart1_tab,
+  chart2_tab,
   chart3_tab
 )
