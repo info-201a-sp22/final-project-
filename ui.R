@@ -69,8 +69,9 @@ sam_widget <- sidebarPanel(
 
 #The contents of Em's tab
 em_panel_plot <- mainPanel(
-   plotlyOutput(outputId = "plot2")
- )
+  plotlyOutput(outputId = "plot2"),
+  includeMarkdown("emtext.md")
+)
 
 #The contents of my tab
 sam_panel_plot <- mainPanel(
