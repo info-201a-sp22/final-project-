@@ -12,7 +12,7 @@ library(scales)
 options(scipen = 999)
 
 chart1 <- read.csv("zchart.csv")
-# chart2 <- read.csv("emchart.csv")
+chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
 
 server <- function(input, output) {
@@ -35,21 +35,21 @@ server <- function(input, output) {
       return(Pie_Chart)   
   })
   
-  # output$plot2 <- renderPlotly({
+  output$plot2 <- renderPlotly({
     
-    # comorbid_widget <- chart2 %>% 
-    #   filter(disorder_names %in% input$comorbid_selection)
-    # # 
-    # emplot <- plot_ly(comorbid_widget, x = ~disorder_names, y = ~just_cp, type = 'bar', name = 'High Chronic Pain') %>% 
-    #   add_trace(y = ~just_op, name = 'Opioid Use') %>%
-    #   add_trace(y = ~just_sf, name = 'Difficulty with Social Functioning') %>%
-    #   add_trace(y = ~just_hy, name = 'Hypertension') %>%
-    #   layout(title = "Frequency of Mental Health Comorbidities in the 2020 NHIS",
-    #          yaxis = list(title = 'Number of Respondents'),
-    #          xaxis = list(title = 'Mental Disorder'))
-    # return(emplot)
+    comorbid_widget <- chart2 %>% 
+       filter(disorder_names %in% input$comorbid_selection)
+     
+    emplot <- plot_ly(comorbid_widget, x = ~disorder_names, y = ~just_cp, type = 'bar', name = 'High Chronic Pain') %>% 
+      add_trace(y = ~just_op, name = 'Opioid Use') %>%
+      add_trace(y = ~just_sf, name = 'Difficulty with Social Functioning') %>%
+      add_trace(y = ~just_hy, name = 'Hypertension') %>%
+      layout(title = "Frequency of Mental Health Comorbidities in the 2020 NHIS",
+             yaxis = list(title = 'Number of Respondents'),
+             xaxis = list(title = 'Mental Disorder'))
+    return(emplot)
     
-  # })
+  })
   
   output$plot3 <- renderPlotly({
     
