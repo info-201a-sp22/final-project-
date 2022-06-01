@@ -10,6 +10,7 @@ library(dplyr)
 
 Emily_Dataset <- read.csv("Emily_SmallDataset.csv")
 chart3 <- read.csv("chart3.csv")
+zchart <- read.csv("zchart.csv")
 
 #vector for sams slider
 sam_min_year <- 2016
@@ -39,7 +40,7 @@ sidebar_panel_widget <- sidebarPanel(
   selectInput(
     inputId = "Mental_Health_Co-Varients",
     label = "Select Anxiety related Mental Health Disorder",
-    choices = Yes_mental_health$Mental_Health,
+    choices = zchart$Mental_Health,
     selected = "dif_doing_errands", 
     multiple = FALSE
   )
@@ -52,42 +53,13 @@ main_panel_plot <- mainPanel(
 
 
 Zayna_Piegraph_Tab <- tabPanel(
-  "Prevelance of Anxiety Impacting Social Functioning and Mobility",
+  "Prevalance of Anxiety Impacting Social Functioning and Mobility",
   sidebarLayout(
     sidebar_panel_widget,
     main_panel_plot
     
   )
 )
-
-
-
-
-
-
-
-
-#chart2_tab <- tabPanel(
-#  "Chart 2",
-#  titlePanel("Emily's Chart 2 Title"),
-#  sidebarLayout(
-#    sidebarPanel(
-#     selectInput(
-#      inputId = "Selections",
-#     choices = Emily_Dataset$Country,
-#    selected = NULL,
-#   multiple = TRUE,
-#  selectize = TRUE,
-# width = NULL,
-#size = NULL
-#),
-# mainPanel(
-#   h3("Prevalence of Comorbidities Among Reported Mental Disorders"),
-# p("Here's where Plot 2 will go.")
-# )
-# )
-# )
-#)
 
 #The contents of my tab
 sam_panel_plot <- mainPanel(
@@ -111,7 +83,7 @@ ui <- navbarPage(
   "2020 NIHS Data",
   theme = shinytheme("flatly"),
   intro_tab,
-  #chart1_tab,
+  Zayna_Piegraph_Tab,
   #chart2_tab,
   chart3_tab
 )
