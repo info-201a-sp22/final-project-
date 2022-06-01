@@ -35,21 +35,37 @@ sam_widget <- sidebarPanel(
   )
 )
 
-#chart1_tab <- tabPanel(
-#"Chart 1",
-#titlePanel("Zayna's Chart 1 Title"),
-# sidebarLayout(
-# sidebarPanel(
-#      selectInput("select", 
-#                  label = h3("This is an example Selection widget. Select a mental disorder."), 
-#                  choices = list("Anxiety" = 1, "Depression" = 2, "Dementia" = 3))
-#    ),
-#    mainPanel(
-#      h3("Magic plot title"),
-#      p("Here's where Plot 1 will go.")
-#    )
-#  )
-#)
+sidebar_panel_widget <- sidebarPanel(
+  selectInput(
+    inputId = "Mental_Health_Co-Varients",
+    label = "Select Anxiety related Mental Health Disorder",
+    choices = Yes_mental_health$Mental_Health,
+    selected = "dif_doing_errands", 
+    multiple = FALSE
+  )
+)
+
+main_panel_plot <- mainPanel(
+  plotlyOutput(outputId = "pie"),
+  includeMarkdown("FinalPieSum.md")
+)
+
+
+Zayna_Piegraph_Tab <- tabPanel(
+  "Prevelance of Anxiety Impacting Social Functioning and Mobility",
+  sidebarLayout(
+    sidebar_panel_widget,
+    main_panel_plot
+    
+  )
+)
+
+
+
+
+
+
+
 
 #chart2_tab <- tabPanel(
 #  "Chart 2",
