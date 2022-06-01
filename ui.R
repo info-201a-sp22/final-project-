@@ -43,10 +43,7 @@ z_widget <- sidebarPanel(
 em_widget <- sidebarPanel(
   selectInput(inputId = "comorbid_selection",
                label = h3("Select a comorbidity"),
-               choices = c("High Chronic Pain",
-                           "Opioid Use",
-                           "Difficulty with Social Functioning",
-                           "Hypertension"),
+               choices = c(emchart$disorder_names),
                selected = "High Chronic Pain",
                multiple = TRUE,
                selectize = TRUE,
