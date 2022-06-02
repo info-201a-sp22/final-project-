@@ -4,6 +4,10 @@ While a lack of temporal data inhibits conclusions of causality, we can use this
 
 Notably, a plot demonstrating proportions may provide more applicable information and the distribution of comorbidities may even be different. This plot uses counts for two reasons: (1) because its designer is still a novice at creating interactive charts in R, and (2) because even frequencies in the context of this dataset can provide a clear basic indication of which comorbidities appear most often among respondents with anxiety, depression, and dementia.
 
+### A note on inclusion criteria 
+The disparity in counts pictured above may also be explained by the inclusion and exclusion criteria the designers selected based off the NHIS information. For example, the criteria for having Hypertension merely required at least one diagnosis of the condition at one point in life or in the past 12 months, while Difficulty with Social Functioning was limited to experiencing an inability to complete errands alone AND inability to participate in social activities. We've provided explicit definitions of our criteria below to clarify this point for the viewer.
+
+
 ### Here is how we defined our variables based off the NHIS questionnaire.
 
 **Anxiety**:
