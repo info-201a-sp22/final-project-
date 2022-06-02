@@ -36,7 +36,7 @@ Pie_Chart <- ggplot(Yes_mental_health, aes(x="", y=count, fill= Mental_Health)) 
   coord_polar(theta = "y", start=0) +
   theme_void() +
   labs(title = 'Prevelance of Anxiety Impacting Social Functioning and Mobility', fill = "Mental Health Co-Varients") +
-  scale_fill_discrete(labels = c("Difficulty Doing Errands", "Difficulty Socially Particpating", "Ever Had Anxiety"))
+  scale_fill_discrete(labels = c("Difficulty Doing Errands", "Difficulty Socially Participating", "Ever Had Anxiety"))
 
 
 

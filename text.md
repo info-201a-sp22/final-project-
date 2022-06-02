@@ -1,6 +1,7 @@
 ### Observed Trends Among Mental Health Disorders and Physical, Social, & Substance-Related Covariates in the United States
 
-#### Website, visualizations, and conclusions written and designed by Sam Sievertsen, Zayna Lughod, Kayla Stocker, and Emily Garat for INFO201, Spring 2022
+#### Created by Sam Sievertsen, Zayna Lughod, Kayla Stocker, and Emily Garat 
+#### INFO201, Spring 2022
 
 #### Purpose
 
