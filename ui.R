@@ -77,7 +77,8 @@ sam_panel_plot <- mainPanel(
 )
 
 z_panel_plot <- mainPanel(
-  plotlyOutput(outputId = "pie")
+  plotlyOutput(outputId = "pie"),
+  includeMarkdown("FinalPieSum.md")
  )
 
 

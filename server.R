@@ -17,6 +17,8 @@ zdata <- read.csv("zchart.csv")
 chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
 
+Z_variable <- c("Difficulty Doing Errands", "Difficulty Socially Particpating", "Ever Had Anxiety")
+
 server <- function(input, output) {
 
   output$pie <- renderPlotly({
@@ -24,12 +26,13 @@ server <- function(input, output) {
     interactive_pie_chart <- zdata %>% 
       filter(Mental_Health %in% input$Mental_Health_Co_Variates) 
     
-    Pie_Chart <- plot_ly(zdata, labels = ~Mental_Health, values = ~count, type = 'pie')
-    Pie_Chart %>% layout(title = "cursed pie",
-                         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-                         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
-    
-    return(Pie_Chart)   
+    Pie_Chart <- plot_ly(zdata, labels = ~Z_variable, values = ~count, type = 'pie')
+  Pie_Chart %>% layout (title = 'Prevelance of Anxiety Impacting Social Functioning and Mobility',
+xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+
+
+     return(Pie_Chart)   
   
   })
   
