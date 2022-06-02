@@ -10,7 +10,7 @@ library(dplyr)
 library(hrbrthemes)
 library(scales)
 
-chart1 <- read.csv("zchart.csv")
+zdata <- read.csv("zchart.csv")
 chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
 
@@ -28,14 +28,12 @@ intro_tab <- tabPanel(
 )
 
 #Zayna's widget
-mental_health <- c("dif_doing_errands", "diff_partic_social_act", "ever_had_anxiety")
 z_widget <- sidebarPanel(
   selectInput(
     inputId = "Mental_Health_Co-Variates",
     label = "Select Anxiety-Related Mental Co-Variate",
-    choices = mental_health,
-    selected = "dif_doing_errands", 
-    multiple = FALSE
+    choices = c(zdata$Mental_Health),
+    multiple = TRUE
   )
 )
 
@@ -43,7 +41,7 @@ z_widget <- sidebarPanel(
 em_widget <- sidebarPanel(
   selectInput(inputId = "comorbid_selection",
                label = h3("Select a comorbidity"),
-               choices = c(emchart$disorder_names),
+               choices = c(chart2$disorder_names),
                selected = "High Chronic Pain",
                multiple = TRUE,
                selectize = TRUE,
