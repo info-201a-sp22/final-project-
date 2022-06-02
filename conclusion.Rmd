@@ -1,6 +1,6 @@
 ## Conclusion
 
-Our three points of focus were the impact of anxiety, the frequency of the chosen comorbidities, and the annual prevalence of the mental health disorders.
+Our three points of focus were the impact of anxiety, the frequency of our chosen comorbidities, and the annual prevalence of the mental health disorders. 
 
 ### Anxiety
 
@@ -12,10 +12,10 @@ Using our pie chart, we attempted to analyze the prevalence of anxiety impacting
 
 ![Frequency of Comorbidities](comorbid_freq.png)
 
-Based on the bar chart, it was clear that hypertension most frequently occurred with all three of our chosen mental disorders. Since hypertension, or high blood pressure, seems to be so clearly related to all three of our disorders, it tells us that this could either be a good indicator of a potential mental disorder. We cannot say for certain whether hypertension is the cause or effect of the disorders, but since there is a correlation it may give us an idea of how to solve the issues. 
+Based on the bar chart, it is clear that hypertension most frequently occurred with all three of our chosen mental disorders. Since hypertension, or high blood pressure, seems to be so clearly related to all three of our disorders, it tells us that this could be a good indicator of a potential mental disorder. Also, it might be good to test people with these disorders for hypertension, because there is such a high prevalence of it among people with these disorders. We cannot say for certain whether hypertension is the cause or effect of the disorders, but since there is a correlation it may give us an idea of how to solve the mental disoorders. 
 
 ### Prevalence of Mental Health Disorders
 
 ![Annual Prevalence](annual_prev.png)
 
-This visualization illustrates the increase of mental disorders like anxiety and depression, and the decrease of dementia. This is somewhat surprising, as one might assume that all mental disorders would have a similar rate of change. This indicates that there is perhaps an increase in the amount of diagnoses given for anxiety and depression (any past stigma is getting erased, and people may be more likely to get help). In regards to dementia, perhaps preventative treatments are becoming more effective, thus leading to the decrease we see. 
+This visualization illustrates the increase of mental disorders like anxiety and depression, and the decrease of dementia. This is somewhat surprising, as one might assume that all mental disorders would have a similar rate of change. This indicates that there is perhaps an increase in the amount of diagnoses given for anxiety and depression (past stigma is getting erased, and people may be more likely to get help). In regards to dementia, perhaps preventative treatments are becoming more effective, thus leading to the decrease we see. Perhaps since dementia prevalence is decreasing, we can see what treatments are working, and attempt to apply them to anxiety and depression treatments. 
