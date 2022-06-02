@@ -9,6 +9,8 @@ library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
 library(scales)
+library(viridis)
+library(viridisLite)
 
 zdata <- read.csv("zchart.csv")
 chart2 <- read.csv("emchart.csv")
@@ -71,7 +73,7 @@ em_panel_plot <- mainPanel(
 #The contents of my tab
 sam_panel_plot <- mainPanel(
   plotlyOutput(outputId = "plot3") ,
-  paste("Provide description of plot here")
+  includeMarkdown("sam_chart_summary.md")
 )
 
 z_panel_plot <- mainPanel(
@@ -105,7 +107,7 @@ chart2_tab <- tabPanel(
 chart3_tab <- tabPanel(
   "Annual Prevalence",
   fluidPage(
-    theme = bs_theme(version = 4 , bootswatch = "lux") ,
+    theme = bs_theme(version = 5 , bootswatch = "lux" , bg = "#101010", fg = "#FDF7F7", primary = "#ED79F9") ,
     sidebarLayout(
       sam_widget,
       sam_panel_plot

@@ -9,6 +9,8 @@ library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
 library(scales)
+library(viridis)
+library(viridisLite)
 options(scipen = 999)
 
 zdata <- read.csv("zchart.csv")
@@ -55,6 +57,7 @@ server <- function(input, output) {
     samplot <- filtered_main %>%
       ggplot( aes(x=Year, y=Rate, group=Disorder, color=Disorder)) +
       geom_line() +
+      scale_color_viridis(discrete = TRUE) +
       ggtitle("US Mental Health Disorder Prevalence") +
       theme_ipsum() +
       ylab("Population Occurrence Rate") 
