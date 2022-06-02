@@ -32,7 +32,7 @@ intro_tab <- tabPanel(
 #Zayna's widget
 z_widget <- sidebarPanel(
   selectInput(
-    inputId = "Mental_Health_Co-Variates",
+    inputId = "Mental_Health_Co_Variates",
     label = "Select Anxiety-Related Mental Co-Variate",
     choices = c(zdata$Mental_Health),
     multiple = TRUE
