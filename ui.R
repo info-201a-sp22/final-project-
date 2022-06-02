@@ -70,7 +70,7 @@ em_panel_plot <- mainPanel(
   includeMarkdown("emtext.md")
 )
 
-#The contents of my tab
+#The contents of sams tab
 sam_panel_plot <- mainPanel(
   plotlyOutput(outputId = "plot3") ,
   includeMarkdown("sam_chart_summary.md")
@@ -115,25 +115,11 @@ chart3_tab <- tabPanel(
   )
 )
 
-
-
-#Conclusion tab
-conclusion_tab <- tabPanel(
-  "Conclusion",
-  fluidPage(
-    includeMarkdown("conclusion.Rmd"),
-  ))
-  
-  
 ui <- navbarPage(
   "2020 NIHS Data",
   theme = shinytheme("flatly"),
   intro_tab,
   chart1_tab,
   chart2_tab,
-  chart3_tab,
-  conclusion_tab
+  chart3_tab
 )
-
-
-

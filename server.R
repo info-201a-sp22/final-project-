@@ -18,7 +18,7 @@ chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
 
 server <- function(input, output) {
-  
+
   output$pie <- renderPlotly({
     
     interactive_pie_chart <- zdata %>% 
