@@ -32,8 +32,8 @@ intro_tab <- tabPanel(
 #Zayna's widget
 z_widget <- sidebarPanel(
   selectInput(
-    inputId = "Mental_Health_Co_Variates",
-    label = "Select Anxiety-Related Mental Co-Variate",
+    inputId = "Mental_Health_Co_Variants",
+    label = "Select Anxiety-Related Mental Co-Variant",
     choices = c(zdata$Mental_Health),
     multiple = TRUE
   )
@@ -78,7 +78,8 @@ sam_panel_plot <- mainPanel(
 
 z_panel_plot <- mainPanel(
   plotlyOutput(outputId = "pie"),
-  includeMarkdown("FinalPieSum.md")
+  includeMarkdown("FinalPieSum.md"),
+  z_widget
  )
 
 

@@ -23,11 +23,11 @@ server <- function(input, output) {
 
   output$pie <- renderPlotly({
     
-    interactive_pie_chart <- zdata %>% 
-      filter(Mental_Health %in% input$Mental_Health_Co_Variates) 
+    interactive_pie_chart <- zdata %>%
+      filter(Mental_Health %in% input$Mental_Health_Co_Variants) 
     
-    Pie_Chart <- plot_ly(zdata, labels = ~Z_variable, values = ~count, type = 'pie')
-  Pie_Chart <- Pie_Chart %>% layout (title = 'Prevelance of Anxiety Impacting Social Functioning and Mobility',
+Pie_Chart <- plot_ly(zdata, labels = ~Z_variable, values = ~count, type = 'pie')
+Pie_Chart <- Pie_Chart %>% layout (title = 'Prevelance of Anxiety Impacting Social Functioning and Mobility',
 xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
 yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
 
