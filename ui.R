@@ -12,6 +12,7 @@ library(scales)
 library(viridis)
 library(viridisLite)
 
+Z_variable <- c("Difficulty Doing Errands", "Difficulty Socially Particpating", "Ever Had Anxiety")
 zdata <- read.csv("zchart.csv")
 chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
@@ -33,8 +34,10 @@ z_widget <- sidebarPanel(
   selectInput(
     inputId = "Mental_Health_Co_Variants",
     label = "Select Anxiety-Related Mental Co-Variant",
-    choices = c(zdata$Mental_Health),
-    multiple = TRUE
+    choices = c("Difficulty Doing Errands" = "dif_doing_errands",
+       "Difficulty Socially Particpating" = "diff_partic_social_act",
+       "Ever Had Anxiety" = "ever_had_anxiety"),
+     multiple = TRUE
   )
 )
 
