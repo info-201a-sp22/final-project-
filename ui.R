@@ -23,10 +23,9 @@ sam_max_year <- 2020
 #Primary panel
 intro_tab <- tabPanel(
   "Introduction",
-  #Include stuff below when text file is finished
-  #fluidPage(
-  #includeMarkdown("text.md")
-  #)
+  fluidPage(
+  includeMarkdown("text.md")
+  )
 )
 
 #Zayna's widget
@@ -117,11 +116,20 @@ chart3_tab <- tabPanel(
   )
 )
 
+#Conclusion
+conclusion_tab <- tabPanel(
+  "Conclusion",
+  fluidPage(
+    includeMarkdown("conclusion.Rmd"))
+)
+
+
 ui <- navbarPage(
   "2020 NIHS Data",
   theme = shinytheme("flatly"),
   intro_tab,
   chart1_tab,
   chart2_tab,
-  chart3_tab
+  chart3_tab,
+  conclusion_tab
 )
