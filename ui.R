@@ -42,9 +42,9 @@ z_widget <- sidebarPanel(
 #Em's widget
 em_widget <- sidebarPanel(
   selectInput(inputId = "comorbid_selection",
-               label = h3("Select a comorbidity"),
+               label = h3("Select mental health disorders"),
                choices = c(chart2$disorder_names),
-               selected = "High Chronic Pain",
+               selected = "Anxiety",
                multiple = TRUE,
                selectize = TRUE,
                width = NULL,
@@ -85,7 +85,7 @@ z_panel_plot <- mainPanel(
 
 #formatting/compiling all Z's things into Z's tab
 chart1_tab <- tabPanel(
-  "Prevalance of Anxiety Impacting Social Functioning and Mobility",
+  "Anxiety's Impact on Social Functioning and Mobility",
   fluidPage(
     sidebarLayout(
       z_widget,
@@ -96,7 +96,7 @@ chart1_tab <- tabPanel(
 
 #formatting/compiling all Em's things into Em's tab
 chart2_tab <- tabPanel(
-   "Frequency of Comorbidities",
+   "Comorbidity Frequencies",
    fluidPage(
      sidebarLayout(
        em_widget,
