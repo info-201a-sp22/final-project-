@@ -11,7 +11,7 @@ library(hrbrthemes)
 library(scales)
 options(scipen = 999)
 
-chart1 <- read.csv("zchart.csv")
+zdata <- read.csv("zchart.csv")
 chart2 <- read.csv("emchart.csv")
 chart3 <- read.csv("chart3.csv")
 
@@ -19,20 +19,16 @@ server <- function(input, output) {
   
   output$pie <- renderPlotly({
     
-    interactive_pie_chart <- chart1 %>% 
-      filter(Mental_Health == input$Mental_Health_Co_Variates) 
+    interactive_pie_chart <- zdata %>% 
+      filter(Mental_Health %in% input$Mental_Health_Co_Variates) 
     
-    Pie_Chart <- ggplot(chart1, aes(x="", y=count, fill= Mental_Health)) +
-      geom_bar(stat="identity", width=1, color="white") +
-      geom_label(aes(label = count),
-                 position = position_stack(vjust = 0.5),
-                 show.legend = FALSE) +
-      coord_polar(theta = "y", start=0) +
-      theme_void() +
-      labs(title = 'Prevalence of Anxiety Impacting Social Functioning and Mobility', fill = "Mental Health Co-Variants") +
-      scale_fill_discrete(labels = c("Difficulty Doing Errands", "Difficulty Socially Particpating", "Ever Had Anxiety"))
+    Pie_Chart <- plot_ly(zdata, labels = ~Mental_Health, values = ~count, type = 'pie')
+    Pie_Chart %>% layout(title = "cursed pie",
+                         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+                         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+    
+    return(Pie_Chart)   
   
-      return(Pie_Chart)   
   })
   
   output$plot2 <- renderPlotly({
