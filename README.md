@@ -3,7 +3,7 @@
 
 Authors: Sam Sievertsen, Zayna Lughod, Kayla Stocker, and Emily Garat
 
-Link: [Follow this link to our project!]([(https://samsievertsen.shinyapps.io/NIHSData/)])
+Link: [Follow this link to our project!](https://samsievertsen.shinyapps.io/NIHSData/)
 
 Please create the necessary files for your multi-page Shiny app in this GitHub repository. Consult the Canvas assignment for more details. Be sure to publish your app on Shinyapps.io.
 
