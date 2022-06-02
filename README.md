@@ -3,7 +3,7 @@
 
 Authors: Sam Sievertsen, Zayna Lughod, Kayla Stocker, and Emily Garat
 
-Link: [Follow this link to our project!](https://emilygarat.shinyapps.io/AH5-NIHS-Mental-Health-and-Comorbidities/?_ga=2.190523438.468999960.1653929717-1223977967.1653703647)
+Link: [Follow this link to our project!]([(https://samsievertsen.shinyapps.io/NIHSData/)])
 
 Please create the necessary files for your multi-page Shiny app in this GitHub repository. Consult the Canvas assignment for more details. Be sure to publish your app on Shinyapps.io.
 
