@@ -1,4 +1,4 @@
-# Title of Your Final Project Here
+# Observed Trends Among Mental Health Disorders and Physical, Social, & Substance-Related Covariates in the United States
 ## INFO 201 "Foundational Skills for Data Science" — Spring 2022
 
 Authors: Sam Sievertsen, Zayna Lughod, Kayla Stocker, and Emily Garat
